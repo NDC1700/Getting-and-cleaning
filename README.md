@@ -4,4 +4,4 @@ Dataset is available on "https://d396qusza40orc.cloudfront.net/getdata%2Fproject
 Files :
   1 run_analysis.R is the script that produced the tidy dataset called "TidyData.csv".
   2 CodeBook described variables transformation
-  3 "TidyData.csv" is the tidy data set.
+  3 "TidyData.txt" is the tidy data set.
