@@ -1,0 +1,65 @@
+---
+title: "CodeBook"
+author: "Nathalie.DherbeyChapuis@unifr.ch"
+date: "01/07/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Primary data description
+
+These data are multivariate Time-series analysis built from the recordings of 30 subjects performing 6 kind of activities of daily living (ADL) while wearing a smartphone.
+
+Data set description is available at : "http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones"
+
+# Data transformation an tidy data
+
+The transformation of the initial downloaded data into a tidy dataframe was performed through the script "run_analysis". This script is strutured in five steps defined by the assignment design.
+
+## Preparatory step: Download the data
+
+The dataset was extracted from the UCI Machine learning repository.
+8 dataframes were extracted:
+ - 2 for variable's coding: "activities" that contains activity's code and Name, and "features" that contains the quantitative variable's name and code.
+ - 3 for the test variables : "subject_test" (code of subject by raw), "x_test" (numerical values of "features" variables, names shared with "features") and "y_test" (code of activity shared with  "activities")
+ - 3 for the training variables : same system as test variables, creating "subject_train", "x_train" and "y_train".
+
+## Step1: Merges the training and the test sets to create one data set.
+
+"X" dataframe was created by adding raws of training (x_train) and test dataframes (x_test).
+"Y" dataframe was created by adding raws of training (y_train) and test dataframes (y_test).
+"Subject" dataframe was created by adding raws of training (subject_train) and test dataframes (subject_test)
+
+Then the 3 dataframes were merged to create "Merged_Data".
+
+## Step2: Extracts only the measurements on the mean and standard deviation for each measurement.
+Columns were selected from "Merged_data" to create "Data.filtered"
+
+## Step3 : Uses descriptive activity names to name the activities in the data set
+ The number coding the activity was changed in "Data.filtered" by its name stored in the "activities" data.frame.
+ 
+## Step4 : Appropriately labels the data set with descriptive variable names.
+Features' names were changed to full names to be more readable.
+
+## Step5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+Data were grouped by subject and activity to calculate the mean of each feature. The new data is called "TidyData" and is exported into "TidyData.txt", a text file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
